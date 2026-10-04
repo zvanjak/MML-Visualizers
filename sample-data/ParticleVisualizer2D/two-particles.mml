@@ -1,0 +1,16 @@
+# MML_SCHEMA mml.particle_2d.v1
+# name: Two 2D particles
+MML_PARTICLE_SIMULATION_DATA_2D
+VERSION: 1
+Width: 100
+Height: 100
+NumBalls: 2
+Ball_1 Red 4
+Ball_2 Blue 3
+NumSteps: 2
+Step 0 0
+0 20 20
+1 80 20
+Step 1 1
+0 30 30
+1 70 30

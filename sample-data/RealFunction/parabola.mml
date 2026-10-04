@@ -1,0 +1,13 @@
+# MML_SCHEMA mml.real_function.v1
+# name: Parabola y=x^2
+# columns: x y
+REAL_FUNCTION
+Parabola y=x^2
+x1: -2
+x2: 2
+NumPoints: 5
+-2 4
+-1 1
+0 0
+1 1
+2 4

@@ -1,0 +1,15 @@
+# MML_SCHEMA mml.parametric_surface.v1
+# name: Bilinear patch z=u*w
+# columns: u w x y z
+PARAMETRIC_SURFACE_CARTESIAN
+Bilinear patch z=u*w
+u1: -1
+u2: 1
+NumPointsU: 2
+w1: -1
+w2: 1
+NumPointsW: 2
+-1 -1 -1 -1 1
+-1 1 -1 1 -1
+1 -1 1 -1 -1
+1 1 1 1 1

@@ -1,0 +1,22 @@
+# MML_SCHEMA mml.scalar_function_3d.v1
+# name: Coarse Gaussian blob
+# columns: x y z value
+SCALAR_FUNCTION_CARTESIAN_3D
+Coarse Gaussian blob
+x1: -1
+x2: 1
+NumPointsX: 2
+y1: -1
+y2: 1
+NumPointsY: 2
+z1: -1
+z2: 1
+NumPointsZ: 2
+-1 -1 -1 0.2231301601
+-1 -1 1 0.2231301601
+-1 1 -1 0.2231301601
+-1 1 1 0.2231301601
+1 -1 -1 0.2231301601
+1 -1 1 0.2231301601
+1 1 -1 0.2231301601
+1 1 1 0.2231301601

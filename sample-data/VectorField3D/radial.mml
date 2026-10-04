@@ -1,0 +1,11 @@
+# MML_SCHEMA mml.vector_field_3d.v1
+# name: Radial field
+# columns: x y z vx vy vz
+VECTOR_FIELD_3D_CARTESIAN
+Radial field
+-1 0 0 -1 0 0
+1 0 0 1 0 0
+0 -1 0 0 -1 0
+0 1 0 0 1 0
+0 0 -1 0 0 -1
+0 0 1 0 0 1

@@ -1,0 +1,18 @@
+# MML_SCHEMA mml.rigid_body_motion.v1
+# name: Spinning box
+RIGID_BODY_TRAJECTORY_3D
+# Single body trajectory data
+# Quaternion: w, x, y, z (scalar-first)
+
+Type: BOX
+Name: DemoBox
+Mass: 1
+HalfExtents: 1 0.5 0.25
+Color: Crimson
+
+Container: 5
+
+NumFrames: 2
+# time, x, y, z, qw, qx, qy, qz, vx, vy, vz, wx, wy, wz
+0.000000, 0.000000, 0.500000, 0.000000, 1.000000, 0.000000, 0.000000, 0.000000, 0.100000, 0.000000, 0.000000, 0.000000, 0.500000, 0.000000
+1.000000, 0.100000, 0.500000, 0.000000, 0.968912, 0.000000, 0.247404, 0.000000, 0.100000, 0.000000, 0.000000, 0.000000, 0.500000, 0.000000
