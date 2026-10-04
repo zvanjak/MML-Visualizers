@@ -66,4 +66,8 @@ Windows PowerShell example:
 
 ## Downstream Integration
 
-Prefer `mmlviz` and the documented schemas over individual implementation executable names. Individual apps may be Qt-backed in the first prerelease, but the public contract is the launcher plus schema IDs.
+Prefer `mmlviz` and the documented schemas over individual implementation executable names.
+Individual apps may be Qt-backed in the first prerelease, but the public contract is the launcher
+plus schema IDs.
+
+For CMake consumers, see [CMake integration](cmake-integration.md).

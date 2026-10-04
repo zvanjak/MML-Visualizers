@@ -17,6 +17,7 @@ this initial archive line so the first release can focus on one validated runtim
 ## Documentation
 
 - [Install and run released archives](docs/install.md)
+- [CMake integration](docs/cmake-integration.md)
 - [App catalog](docs/app-catalog.md)
 - [Troubleshooting](docs/troubleshooting.md)
 - [Release notes template](docs/release-notes-template.md)
