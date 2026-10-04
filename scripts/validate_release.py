@@ -123,7 +123,17 @@ def verify_license_files(release_root: Path, manifest: dict) -> None:
         raise RuntimeError(f"release-manifest licenseDirectory is {license_directory!r}, expected 'licenses'")
 
     license_root = release_root / license_directory
-    for name in ("MML-Visualizers-LICENSE.md", "third-party-notices.md"):
+    required_files = (
+        "MML-Visualizers-LICENSE.md",
+        "third-party-notices.md",
+        "Qt-LICENSE.md",
+        "FLTK-LICENSE.md",
+        "DotNet-WPF-NOTICES.md",
+        "OpenGL-NOTICES.md",
+        "Compiler-Runtime-NOTICES.md",
+        "ICU-LICENSE.md",
+    )
+    for name in required_files:
         path = license_root / name
         if not path.is_file():
             raise RuntimeError(f"Missing release license/notice file: {path}")

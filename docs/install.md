@@ -58,6 +58,10 @@ Read `licenses/MML-Visualizers-LICENSE.md` in the extracted archive before using
 Visualizers are free for personal, educational, and non-commercial academic use. Commercial use
 requires a separate paid commercial license.
 
+The `licenses/` directory also contains third-party runtime notices for Qt, FLTK, WPF/.NET, OpenGL
+or platform graphics dependencies, compiler runtimes, and ICU when those components are bundled or
+required by the archive family.
+
 The license applies to the visualizer applications and release binaries. Your `.mml` and
 `.mmlworld` files are your data; the public schemas, generated data files, and small samples are
 intended to remain freely usable unless a specific file says otherwise.

@@ -21,7 +21,7 @@
 - One smoke-load sample per supported visualizer kind with `--smoke-test --exit-after-load`
 - Archive checksum verification
 - Manifest/platform/version checks
-- Required first-party license and third-party notice files present under `licenses/`
+- Required first-party license and component third-party notice files present under `licenses/`
 
 ## Compatibility
 
@@ -32,8 +32,9 @@
 
 MML Visualizers are free for personal, educational, and non-commercial academic use. Commercial use
 requires a separate paid commercial license. Each archive must include
-`licenses/MML-Visualizers-LICENSE.md` and the applicable third-party runtime notices for its exact
-contents.
+`licenses/MML-Visualizers-LICENSE.md`, `licenses/third-party-notices.md`, and the component notice
+files for Qt, FLTK, WPF/.NET, OpenGL/platform graphics dependencies, compiler runtimes, and ICU.
+Before publishing, confirm these notices match the exact binaries redistributed in the artifact.
 
 ## Known Limitations
 

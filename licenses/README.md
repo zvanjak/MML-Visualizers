@@ -16,8 +16,15 @@ Expected archive files:
 ```text
 licenses/
   MML-Visualizers-LICENSE.md
-  Qt-LICENSE.md
   third-party-notices.md
+  Qt-LICENSE.md
+  FLTK-LICENSE.md
+  DotNet-WPF-NOTICES.md
+  OpenGL-NOTICES.md
+  Compiler-Runtime-NOTICES.md
+  ICU-LICENSE.md
 ```
 
-If a future release includes FLTK or WPF extras, the release notes and archive license directory must include the relevant runtime notices for those components.
+Release validation fails if this baseline notice set is absent. Before publishing an artifact,
+inspect the exact redistributed binaries for that platform and extend these files with any
+additional notice text required by the dependencies actually shipped.
