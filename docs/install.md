@@ -9,6 +9,10 @@ MML Visualizers is distributed as binary release archives. The source code for t
    - `MML-Visualizers-<version>-windows-x64-msvc143.zip`
    - `MML-Visualizers-<version>-linux-x64-glibc.tar.gz`
    - `MML-Visualizers-<version>-macos-arm64.tar.gz`
+  - Optional FLTK 2D companion archives:
+    - `MML-Visualizers-FLTK-<version>-windows-x64-msvc143.zip`
+    - `MML-Visualizers-FLTK-<version>-linux-x64-glibc.tar.gz`
+    - `MML-Visualizers-FLTK-<version>-macos-arm64.tar.gz`
 3. Download `SHA256SUMS` from the same release.
 
 ## Verify
@@ -40,6 +44,9 @@ MML-Visualizers-<version>-<platform>/
   licenses/
 ```
 
+FLTK archives use the same layout under an `MML-Visualizers-FLTK-<version>-<platform>/`
+directory and include the `real-function`, `curve2d`, `particle2d`, and `vector2d` launcher kinds.
+
 ## Run
 
 Use the toolkit-neutral launcher:
@@ -67,7 +74,7 @@ Windows PowerShell example:
 ## Downstream Integration
 
 Prefer `mmlviz` and the documented schemas over individual implementation executable names.
-Individual apps may be Qt-backed in the first prerelease, but the public contract is the launcher
-plus schema IDs.
+Individual apps may be Qt-backed or FLTK-backed depending on the archive family, but the public
+contract is the launcher plus schema IDs.
 
 For CMake consumers, see [CMake integration](cmake-integration.md).

@@ -14,7 +14,7 @@ import tarfile
 import zipfile
 from pathlib import Path
 
-SAMPLE_CASES = [
+ALL_SAMPLE_CASES = [
     ("real-function", "RealFunction/parabola.mml"),
     ("curve2d", "ParametricCurve2D/unit-circle.mml"),
     ("curve3d", "ParametricCurve3D/helix.mml"),
@@ -27,6 +27,18 @@ SAMPLE_CASES = [
     ("vector3d", "VectorField3D/radial.mml"),
     ("rigid-body", "RigidBodyMovement/spinning-box.mml"),
 ]
+
+FLTK_SAMPLE_CASES = [
+    ("real-function", "RealFunction/parabola.mml"),
+    ("curve2d", "ParametricCurve2D/unit-circle.mml"),
+    ("particle2d", "ParticleVisualizer2D/two-particles.mml"),
+    ("vector2d", "VectorField2D/rotation.mml"),
+]
+
+SAMPLE_CASE_SETS = {
+    "all": ALL_SAMPLE_CASES,
+    "fltk": FLTK_SAMPLE_CASES,
+}
 
 LOADER_ERROR_MARKERS = [
     "Cannot open",
@@ -46,6 +58,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--sha256sums", required=True, type=Path, help="SHA256SUMS file from the release")
     parser.add_argument("--expected-version", required=True, help="Expected artifactVersion, usually the release tag without v")
     parser.add_argument("--expected-platform", required=True, help="Expected release-manifest platformId")
+    parser.add_argument("--sample-set", choices=sorted(SAMPLE_CASE_SETS), default="all", help="Sample smoke matrix to run")
     parser.add_argument("--work-dir", default=Path(".release-validation"), type=Path, help="Temporary extraction directory")
     return parser.parse_args()
 
@@ -153,7 +166,7 @@ def validate(args: argparse.Namespace) -> None:
 
     sample_root = release_root / "share" / "mml-visualizers" / "sample-data"
     smoke_output = []
-    for kind, relative_sample in SAMPLE_CASES:
+    for kind, relative_sample in SAMPLE_CASE_SETS[args.sample_set]:
         sample = sample_root / Path(relative_sample)
         if not sample.is_file():
             raise RuntimeError(f"Missing sample for {kind}: {sample}")

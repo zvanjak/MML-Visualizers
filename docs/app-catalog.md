@@ -2,16 +2,16 @@
 
 All apps are launched through `mmlviz`. The `implementation` value is informational; downstream projects should use the stable kind and schema IDs.
 
-| Kind | Display name | Primary schema | First prerelease implementation |
+| Kind | Display name | Primary schema | Archive families |
 | --- | --- | --- | --- |
-| `real-function` | MML Real Function Visualizer | `mml.real_function.v1` | Qt |
-| `curve2d` | MML Parametric Curve 2D Visualizer | `mml.parametric_curve_2d.v1` | Qt |
+| `real-function` | MML Real Function Visualizer | `mml.real_function.v1` | Qt, FLTK |
+| `curve2d` | MML Parametric Curve 2D Visualizer | `mml.parametric_curve_2d.v1` | Qt, FLTK |
 | `curve3d` | MML Parametric Curve 3D Visualizer | `mml.parametric_curve_3d.v1` | Qt |
-| `particle2d` | MML Particle 2D Visualizer | `mml.particle_2d.v1` | Qt |
+| `particle2d` | MML Particle 2D Visualizer | `mml.particle_2d.v1` | Qt, FLTK |
 | `particle3d` | MML Particle 3D Visualizer | `mml.particle_3d.v1` | Qt |
 | `scalar2d` | MML Scalar Function 2D Visualizer | `mml.scalar_function_2d.v1` | Qt |
 | `scalar3d` | MML Scalar Function 3D Visualizer | `mml.scalar_function_3d.v1` | Qt |
-| `vector2d` | MML Vector Field 2D Visualizer | `mml.vector_field_2d.v1` | Qt |
+| `vector2d` | MML Vector Field 2D Visualizer | `mml.vector_field_2d.v1` | Qt, FLTK |
 | `vector3d` | MML Vector Field 3D Visualizer | `mml.vector_field_3d.v1` | Qt |
 | `surface` | MML Parametric Surface Visualizer | `mml.parametric_surface.v1` | Qt |
 | `rigid-body` | MML Rigid Body Motion Visualizer | `mml.rigid_body_motion.v1` | Qt |

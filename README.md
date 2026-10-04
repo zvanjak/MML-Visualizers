@@ -8,11 +8,13 @@ This repository is the public home for binary releases, file-format documentatio
 checksums, and release validation. The visualizer source code is developed privately; users consume
 released archives and the stable `mmlviz` launcher.
 
-## First Prerelease Scope
+## Release Families
 
-The first planned prerelease, `v0.1.0-rc.1`, is a Qt-backed binary package exposed through the
-toolkit-neutral `mmlviz` launcher. FLTK visualizers and Windows-only WPF extras are deferred from
-this initial archive line so the first release can focus on one validated runtime packaging path.
+The primary `MML-Visualizers` archives are Qt-backed packages exposed through the toolkit-neutral
+`mmlviz` launcher and cover the full public app catalog. `MML-Visualizers-FLTK` archives are a
+lighter FLTK-backed companion family for the four 2D visualizers implemented in FLTK:
+real functions, 2D parametric curves, 2D particle motion, and 2D vector fields. Windows-only WPF
+extras are planned for a later archive family.
 
 ## Documentation
 
@@ -29,8 +31,9 @@ this initial archive line so the first release can focus on one validated runtim
 
 The public validation workflow downloads a published release archive, verifies `SHA256SUMS`,
 extracts the package, checks manifests, runs `mmlviz --version` and `mmlviz list`, then smoke-loads
-one public sample for every visualizer kind. The workflow can be run manually for a release tag and
-also runs when a release is published.
+one public sample for every visualizer kind in that release family. Qt archives validate the full
+catalog; FLTK archives validate the four FLTK-supported 2D visualizers. The workflow can be run
+manually for a release tag and also runs when a release is published.
 
 ## File Formats
 
