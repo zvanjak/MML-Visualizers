@@ -1,0 +1,91 @@
+name: Validate release
+
+on:
+  workflow_dispatch:
+    inputs:
+      release_tag:
+        description: Release tag to validate, for example v0.1.0-rc.1
+        required: true
+        default: v0.1.0-rc.1
+  release:
+    types: [published]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: ${{ matrix.platform_id }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: windows-2022
+            platform_id: windows-x64-msvc143
+            archive_ext: zip
+          - os: ubuntu-24.04
+            platform_id: linux-x64-glibc
+            archive_ext: tar.gz
+          - os: macos-14
+            platform_id: macos-arm64
+            archive_ext: tar.gz
+
+    steps:
+      - name: Checkout public validation scripts
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Resolve release tag
+        id: release
+        shell: bash
+        run: |
+          tag="${{ github.event.release.tag_name }}"
+          if [[ -z "$tag" ]]; then
+            tag="${{ inputs.release_tag }}"
+          fi
+          version="${tag#v}"
+          archive="MML-Visualizers-${version}-${{ matrix.platform_id }}.${{ matrix.archive_ext }}"
+          echo "tag=$tag" >> "$GITHUB_OUTPUT"
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+          echo "archive=$archive" >> "$GITHUB_OUTPUT"
+
+      - name: Install Linux GUI dependencies
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y xvfb libglu1-mesa libgl1
+
+      - name: Download release assets
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          mkdir -p release-assets
+          gh release download "${{ steps.release.outputs.tag }}" \
+            --repo "${{ github.repository }}" \
+            --pattern "${{ steps.release.outputs.archive }}" \
+            --pattern "SHA256SUMS" \
+            --dir release-assets
+
+      - name: Validate archive
+        shell: bash
+        run: |
+          python scripts/validate_release.py \
+            --archive "release-assets/${{ steps.release.outputs.archive }}" \
+            --sha256sums "release-assets/SHA256SUMS" \
+            --expected-version "${{ steps.release.outputs.version }}" \
+            --expected-platform "${{ matrix.platform_id }}" \
+            --work-dir ".release-validation/${{ matrix.platform_id }}"
+
+      - name: Upload validation extraction on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: validation-failure-${{ matrix.platform_id }}
+          path: .release-validation/${{ matrix.platform_id }}
+          if-no-files-found: ignore

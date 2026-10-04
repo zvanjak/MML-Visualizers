@@ -1,5 +1,7 @@
 # MML Visualizers
 
+[![Validate release](https://github.com/zvanjak/MML-Visualizers/actions/workflows/validate-release.yml/badge.svg)](https://github.com/zvanjak/MML-Visualizers/actions/workflows/validate-release.yml)
+
 Public release companion for the Minimal Math Library visualizer tools.
 
 This repository is the public home for binary releases, file-format documentation, sample data,
@@ -21,6 +23,13 @@ this initial archive line so the first release can focus on one validated runtim
 - [Licenses and notices](licenses/README.md)
 - [File formats](docs/file-formats)
 - [Sample data](sample-data)
+
+## Release Health
+
+The public validation workflow downloads a published release archive, verifies `SHA256SUMS`,
+extracts the package, checks manifests, runs `mmlviz --version` and `mmlviz list`, then smoke-loads
+one public sample for every visualizer kind. The workflow can be run manually for a release tag and
+also runs when a release is published.
 
 ## File Formats
 
