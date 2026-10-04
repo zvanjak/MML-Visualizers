@@ -6,6 +6,12 @@ This repository is the public home for binary releases, file-format documentatio
 checksums, and release validation. The visualizer source code is developed privately; users consume
 released archives and the stable `mmlviz` launcher.
 
+## First Prerelease Scope
+
+The first planned prerelease, `v0.1.0-rc.1`, is a Qt-backed binary package exposed through the
+toolkit-neutral `mmlviz` launcher. FLTK visualizers and Windows-only WPF extras are deferred from
+this initial archive line so the first release can focus on one validated runtime packaging path.
+
 ## File Formats
 
 The public v1 visualizer schemas are documented in [docs/file-formats](docs/file-formats). They
