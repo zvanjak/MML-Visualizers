@@ -35,9 +35,12 @@ FLTK_SAMPLE_CASES = [
     ("vector2d", "VectorField2D/rotation.mml"),
 ]
 
+WPF_SAMPLE_CASES = ALL_SAMPLE_CASES
+
 SAMPLE_CASE_SETS = {
     "all": ALL_SAMPLE_CASES,
     "fltk": FLTK_SAMPLE_CASES,
+    "wpf": WPF_SAMPLE_CASES,
 }
 
 LOADER_ERROR_MARKERS = [
@@ -75,7 +78,7 @@ def verify_checksum(archive: Path, sha256sums: Path) -> None:
     actual = sha256(archive)
     archive_name = archive.name
     matches = []
-    for raw_line in sha256sums.read_text(encoding="utf-8").splitlines():
+    for raw_line in sha256sums.read_text(encoding="utf-8-sig").splitlines():
         line = raw_line.strip()
         if not line:
             continue
@@ -111,7 +114,7 @@ def extract_archive(archive: Path, work_dir: Path) -> Path:
 def load_json(path: Path) -> dict:
     if not path.is_file():
         raise RuntimeError(f"Missing JSON file: {path}")
-    return json.loads(path.read_text(encoding="utf-8"))
+    return json.loads(path.read_text(encoding="utf-8-sig"))
 
 
 def executable_path(release_root: Path) -> Path:

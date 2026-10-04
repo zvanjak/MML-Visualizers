@@ -13,6 +13,8 @@ MML Visualizers is distributed as binary release archives. The source code for t
     - `MML-Visualizers-FLTK-<version>-windows-x64-msvc143.zip`
     - `MML-Visualizers-FLTK-<version>-linux-x64-glibc.tar.gz`
     - `MML-Visualizers-FLTK-<version>-macos-arm64.tar.gz`
+  - Optional Windows WPF companion archive:
+    - `MML-Visualizers-WPF-<version>-windows-x64-msvc143.zip`
 3. Download `SHA256SUMS` from the same release.
 
 ## Verify
@@ -46,6 +48,8 @@ MML-Visualizers-<version>-<platform>/
 
 FLTK archives use the same layout under an `MML-Visualizers-FLTK-<version>-<platform>/`
 directory and include the `real-function`, `curve2d`, `particle2d`, and `vector2d` launcher kinds.
+WPF archives use the same layout under an `MML-Visualizers-WPF-<version>-windows-x64-msvc143/`
+directory, include the full public app catalog, and require the .NET 8 Desktop Runtime on Windows.
 
 ## Run
 
@@ -74,7 +78,7 @@ Windows PowerShell example:
 ## Downstream Integration
 
 Prefer `mmlviz` and the documented schemas over individual implementation executable names.
-Individual apps may be Qt-backed or FLTK-backed depending on the archive family, but the public
-contract is the launcher plus schema IDs.
+Individual apps may be Qt-backed, FLTK-backed, or WPF-backed depending on the archive family, but
+the public contract is the launcher plus schema IDs.
 
 For CMake consumers, see [CMake integration](cmake-integration.md).

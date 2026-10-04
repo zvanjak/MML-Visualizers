@@ -15,6 +15,7 @@ on:
         options:
           - Qt
           - FLTK
+          - WPF
   release:
     types: [published]
 
@@ -63,23 +64,32 @@ jobs:
           version="${tag#v}"
           archive_prefix="MML-Visualizers"
           sample_set="all"
+          skip="false"
           if [[ "$family" == "FLTK" ]]; then
             archive_prefix="MML-Visualizers-FLTK"
             sample_set="fltk"
+          elif [[ "$family" == "WPF" ]]; then
+            archive_prefix="MML-Visualizers-WPF"
+            sample_set="wpf"
+            if [[ "${{ matrix.platform_id }}" != "windows-x64-msvc143" ]]; then
+              skip="true"
+            fi
           fi
           archive="${archive_prefix}-${version}-${{ matrix.platform_id }}.${{ matrix.archive_ext }}"
           echo "tag=$tag" >> "$GITHUB_OUTPUT"
           echo "version=$version" >> "$GITHUB_OUTPUT"
           echo "sample_set=$sample_set" >> "$GITHUB_OUTPUT"
           echo "archive=$archive" >> "$GITHUB_OUTPUT"
+          echo "skip=$skip" >> "$GITHUB_OUTPUT"
 
       - name: Install Linux GUI dependencies
-        if: runner.os == 'Linux'
+        if: runner.os == 'Linux' && steps.release.outputs.skip != 'true'
         run: |
           sudo apt-get update
           sudo apt-get install -y xvfb libglu1-mesa libgl1 libegl1 libxcb-cursor0
 
       - name: Download release assets
+        if: steps.release.outputs.skip != 'true'
         env:
           GH_TOKEN: ${{ github.token }}
         shell: bash
@@ -92,6 +102,7 @@ jobs:
             --dir release-assets
 
       - name: Validate archive
+        if: steps.release.outputs.skip != 'true'
         shell: bash
         env:
           QT_QPA_PLATFORM: ${{ runner.os == 'Linux' && 'offscreen' || '' }}
