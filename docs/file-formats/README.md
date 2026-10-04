@@ -35,3 +35,4 @@ Rules shared by all v1 schemas:
 | `mml.vector_field_3d.v1` | [vector-field-3d-v1.md](vector-field-3d-v1.md) | `sample-data/VectorField3D/radial.mml` |
 | `mml.parametric_surface.v1` | [parametric-surface-v1.md](parametric-surface-v1.md) | `sample-data/ParametricSurface/patch.mml` |
 | `mml.rigid_body_motion.v1` | [rigid-body-motion-v1.md](rigid-body-motion-v1.md) | `sample-data/RigidBodyMovement/spinning-box.mml` |
+| `mml.world_scene.v1` | [world-scene-v1.md](world-scene-v1.md) | `sample-data/WorldScene/basis-arrows.mmlworld` |

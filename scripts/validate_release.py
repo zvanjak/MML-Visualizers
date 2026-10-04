@@ -35,7 +35,7 @@ FLTK_SAMPLE_CASES = [
     ("vector2d", "VectorField2D/rotation.mml"),
 ]
 
-WPF_SAMPLE_CASES = ALL_SAMPLE_CASES
+WPF_SAMPLE_CASES = [*ALL_SAMPLE_CASES, ("world", "WorldScene/basis-arrows.mmlworld")]
 
 SAMPLE_CASE_SETS = {
     "all": ALL_SAMPLE_CASES,

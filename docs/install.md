@@ -49,7 +49,8 @@ MML-Visualizers-<version>-<platform>/
 FLTK archives use the same layout under an `MML-Visualizers-FLTK-<version>-<platform>/`
 directory and include the `real-function`, `curve2d`, `particle2d`, and `vector2d` launcher kinds.
 WPF archives use the same layout under an `MML-Visualizers-WPF-<version>-windows-x64-msvc143/`
-directory, include the full public app catalog, and require the .NET 8 Desktop Runtime on Windows.
+directory, include the full native Windows app catalog including `world` scenes, and require the
+.NET 8 Desktop Runtime on Windows.
 
 ## Run
 

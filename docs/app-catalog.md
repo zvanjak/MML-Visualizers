@@ -15,6 +15,7 @@ All apps are launched through `mmlviz`. The `implementation` value is informatio
 | `vector3d` | MML Vector Field 3D Visualizer | `mml.vector_field_3d.v1` | Qt, WPF |
 | `surface` | MML Parametric Surface Visualizer | `mml.parametric_surface.v1` | Qt, WPF |
 | `rigid-body` | MML Rigid Body Motion Visualizer | `mml.rigid_body_motion.v1` | Qt, WPF |
+| `world` | MML World Scene Visualizer | `mml.world_scene.v1` | WPF |
 
 ## Commands
 

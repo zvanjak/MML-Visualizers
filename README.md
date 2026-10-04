@@ -11,11 +11,11 @@ released archives and the stable `mmlviz` launcher.
 ## Release Families
 
 The primary `MML-Visualizers` archives are Qt-backed packages exposed through the toolkit-neutral
-`mmlviz` launcher and cover the full public app catalog. `MML-Visualizers-FLTK` archives are a
+`mmlviz` launcher and cover the cross-platform public app catalog. `MML-Visualizers-FLTK` archives are a
 lighter FLTK-backed companion family for the four 2D visualizers implemented in FLTK:
 real functions, 2D parametric curves, 2D particle motion, and 2D vector fields.
 `MML-Visualizers-WPF` archives are Windows-only, framework-dependent WPF packages covering the
-full public app catalog for users who want the native Windows visualizer family.
+full native Windows visualizer family, including world-scene `.mmlworld` files.
 
 ## Documentation
 
@@ -32,9 +32,10 @@ full public app catalog for users who want the native Windows visualizer family.
 
 The public validation workflow downloads a published release archive, verifies `SHA256SUMS`,
 extracts the package, checks manifests, runs `mmlviz --version` and `mmlviz list`, then smoke-loads
-one public sample for every visualizer kind in that release family. Qt and WPF archives validate
-the full catalog; FLTK archives validate the four FLTK-supported 2D visualizers. The workflow can
-be run manually for a release tag and also runs when a release is published.
+one public sample for every visualizer kind in that release family. Qt archives validate the
+cross-platform catalog, WPF archives also validate the Windows-only world-scene visualizer, and
+FLTK archives validate the four FLTK-supported 2D visualizers. The workflow can be run manually for
+a release tag and also runs when a release is published.
 
 ## File Formats
 
@@ -48,6 +49,7 @@ cover:
 - 2D and 3D vector fields
 - Parametric surfaces
 - Rigid-body motion
+- World scenes (`.mmlworld`, WPF release family)
 
 Small loadable examples live in [sample-data](sample-data). Each public sample begins with a
 `# MML_SCHEMA ...` line and keeps the legacy first non-comment visualizer header so current binary
