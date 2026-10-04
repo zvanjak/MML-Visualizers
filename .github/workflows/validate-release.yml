@@ -74,6 +74,8 @@ jobs:
 
       - name: Validate archive
         shell: bash
+        env:
+          QT_QPA_PLATFORM: ${{ runner.os == 'Linux' && 'offscreen' || '' }}
         run: |
           python scripts/validate_release.py \
             --archive "release-assets/${{ steps.release.outputs.archive }}" \
