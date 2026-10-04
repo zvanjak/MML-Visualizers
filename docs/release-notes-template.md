@@ -21,11 +21,19 @@
 - One smoke-load sample per supported visualizer kind with `--smoke-test --exit-after-load`
 - Archive checksum verification
 - Manifest/platform/version checks
+- Required first-party license and third-party notice files present under `licenses/`
 
 ## Compatibility
 
 - MML Core: `>=2.0.0`
 - MML Packages: `>=0.1.0-rc.5`
+
+## License
+
+MML Visualizers are free for personal, educational, and non-commercial academic use. Commercial use
+requires a separate paid commercial license. Each archive must include
+`licenses/MML-Visualizers-LICENSE.md` and the applicable third-party runtime notices for its exact
+contents.
 
 ## Known Limitations
 

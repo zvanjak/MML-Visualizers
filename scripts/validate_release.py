@@ -117,6 +117,18 @@ def load_json(path: Path) -> dict:
     return json.loads(path.read_text(encoding="utf-8-sig"))
 
 
+def verify_license_files(release_root: Path, manifest: dict) -> None:
+    license_directory = manifest.get("licenseDirectory")
+    if license_directory != "licenses":
+        raise RuntimeError(f"release-manifest licenseDirectory is {license_directory!r}, expected 'licenses'")
+
+    license_root = release_root / license_directory
+    for name in ("MML-Visualizers-LICENSE.md", "third-party-notices.md"):
+        path = license_root / name
+        if not path.is_file():
+            raise RuntimeError(f"Missing release license/notice file: {path}")
+
+
 def executable_path(release_root: Path) -> Path:
     name = "mmlviz.exe" if os.name == "nt" else "mmlviz"
     path = release_root / "bin" / name
@@ -160,6 +172,7 @@ def validate(args: argparse.Namespace) -> None:
         raise RuntimeError(f"artifactVersion mismatch: {manifest.get('artifactVersion')!r} != {args.expected_version!r}")
     if manifest.get("platformId") != args.expected_platform:
         raise RuntimeError(f"platformId mismatch: {manifest.get('platformId')!r} != {args.expected_platform!r}")
+    verify_license_files(release_root, manifest)
     if app_manifest.get("launcher", {}).get("id") != "mmlviz":
         raise RuntimeError("app-manifest launcher id is not 'mmlviz'")
 

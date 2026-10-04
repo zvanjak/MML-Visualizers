@@ -52,6 +52,16 @@ WPF archives use the same layout under an `MML-Visualizers-WPF-<version>-windows
 directory, include the full native Windows app catalog including `world` scenes, and require the
 .NET 8 Desktop Runtime on Windows.
 
+## License
+
+Read `licenses/MML-Visualizers-LICENSE.md` in the extracted archive before using the tools. MML
+Visualizers are free for personal, educational, and non-commercial academic use. Commercial use
+requires a separate paid commercial license.
+
+The license applies to the visualizer applications and release binaries. Your `.mml` and
+`.mmlworld` files are your data; the public schemas, generated data files, and small samples are
+intended to remain freely usable unless a specific file says otherwise.
+
 ## Run
 
 Use the toolkit-neutral launcher:

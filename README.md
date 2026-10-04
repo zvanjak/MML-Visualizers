@@ -8,6 +8,10 @@ This repository is the public home for binary releases, file-format documentatio
 checksums, and release validation. The visualizer source code is developed privately; users consume
 released archives and the stable `mmlviz` launcher.
 
+MML Visualizers are free for personal, educational, and non-commercial academic use. Commercial
+use requires a separate paid commercial license; see [LICENSE.md](LICENSE.md) and
+[Licenses and notices](licenses/README.md).
+
 ## Release Families
 
 The primary `MML-Visualizers` archives are Qt-backed packages exposed through the toolkit-neutral
@@ -31,11 +35,11 @@ full native Windows visualizer family, including world-scene `.mmlworld` files.
 ## Release Health
 
 The public validation workflow downloads a published release archive, verifies `SHA256SUMS`,
-extracts the package, checks manifests, runs `mmlviz --version` and `mmlviz list`, then smoke-loads
-one public sample for every visualizer kind in that release family. Qt archives validate the
-cross-platform catalog, WPF archives also validate the Windows-only world-scene visualizer, and
-FLTK archives validate the four FLTK-supported 2D visualizers. The workflow can be run manually for
-a release tag and also runs when a release is published.
+extracts the package, checks manifests and required license/notice files, runs `mmlviz --version`
+and `mmlviz list`, then smoke-loads one public sample for every visualizer kind in that release
+family. Qt archives validate the cross-platform catalog, WPF archives also validate the Windows-only
+world-scene visualizer, and FLTK archives validate the four FLTK-supported 2D visualizers. The
+workflow can be run manually for a release tag and also runs when a release is published.
 
 ## File Formats
 
