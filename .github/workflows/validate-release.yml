@@ -58,7 +58,7 @@ jobs:
         if: runner.os == 'Linux'
         run: |
           sudo apt-get update
-          sudo apt-get install -y xvfb libglu1-mesa libgl1 libegl1
+          sudo apt-get install -y xvfb libglu1-mesa libgl1 libegl1 libxcb-cursor0
 
       - name: Download release assets
         env:
