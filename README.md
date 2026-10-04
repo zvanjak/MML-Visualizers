@@ -12,6 +12,16 @@ The first planned prerelease, `v0.1.0-rc.1`, is a Qt-backed binary package expos
 toolkit-neutral `mmlviz` launcher. FLTK visualizers and Windows-only WPF extras are deferred from
 this initial archive line so the first release can focus on one validated runtime packaging path.
 
+## Documentation
+
+- [Install and run released archives](docs/install.md)
+- [App catalog](docs/app-catalog.md)
+- [Troubleshooting](docs/troubleshooting.md)
+- [Release notes template](docs/release-notes-template.md)
+- [Licenses and notices](licenses/README.md)
+- [File formats](docs/file-formats)
+- [Sample data](sample-data)
+
 ## File Formats
 
 The public v1 visualizer schemas are documented in [docs/file-formats](docs/file-formats). They
