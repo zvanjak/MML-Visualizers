@@ -4,9 +4,9 @@ on:
   workflow_dispatch:
     inputs:
       release_tag:
-        description: Release tag to validate, for example v0.1.0-rc.1
+        description: Release tag to validate, for example v0.1.0
         required: true
-        default: v0.1.0-rc.1
+        default: v0.1.0
       release_family:
         description: Release archive family to validate
         required: true
